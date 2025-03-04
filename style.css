@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-color: rgb(138, 119, 165);
+    color: black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-container {
+    background-color: rgba(102, 81, 221, 0.3);
+    height: 95%;
+    width: 95%;
+    display: flex;
+
+}
+
+#left-side-container {
+    background-color: rgb(123, 58, 58, 0.3);
+    height: 100%;
+    width: 30%;
+}
+
+#reason-image img {
+    width: 100%;
+    height: 20%;
+    display: block;
+}
+
+#reason-content {
+    background-color: rgb(193, 143, 51, 0.4);
+    width: 100%;
+    height: 80%;
+}
+
+
+#right-side-container {
+    background-color: rgba(255, 0, 0, 0.3);
+    height: 100%;
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+#project-title-container {
+    background-color: rgb(43, 191, 147);
+    width: 70%;
+    height: 5%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#entry-box {
+    background-color: rgba(80, 192, 80, 0.5);
+    height: 40%;
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centering trick */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
