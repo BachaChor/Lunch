@@ -8,12 +8,13 @@
 }
 
 body {
-    background-color: rgb(138, 119, 165);
-    color: black;
-    height: 100vh;
+    background: linear-gradient(135deg, #87CEEB, #E6E6FA); /* Sky blue to Light Purple */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
 }
 
 #main-container {
@@ -27,147 +28,119 @@ body {
 #left-side-container {
     display: flex;
     flex-direction: column;
-    background-color: rgb(123, 58, 58, 0.3);
     height: 100%;
     width: 40%;
-    /* overflow: hidden;   not sure about this */
-    gap: 15px;
+    gap: 10px;
 }
 
 
 .user-leave-entry {
-    background-color: rgb(25, 19, 195);
-    margin: 5px 0;
-    height: 50px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3); /* Black */
+    color: white;
 }
 
 
-.USER_ENTRY {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.leave-serial, .leave-reason, .leave-date, .leave-time-of-day {
+    padding: 5px 10px;
 }
 
-.leave-serial {
-    background-color: red;
-    width: 5%;
-    height: 90%;
-}
-
-.leave-reason {
-    background-color: lime;
-    width: 25%;
-    height: 90%;
-}
-
-.leave-date {
-    background-color: blue;
-    width: 25%;
-    height: 90%;
-}
-
-.leave-time-of-day {
-    background-color: purple;
-    width: 25%;
-    height: 90%;
-}
 
 .leave-delete-button {
     margin-right: 3px;
-    background-color: white;
+    background-color: rgb(185, 26, 26);
     width: 20px;
     height: 20px;
     border-radius: 50%;
     text-align: center;
     font-weight: 700;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-/* designing the scroll bar */
-
+.leave-delete-button:hover {
+    cursor:grab;
+}
 
 /* Scrollbar Styling */
 #reason-content::-webkit-scrollbar {
-    width: 8px; /* Width of the scrollbar */
-}
-
-#reason-content::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1); /* Track background */
-    border-radius: 10px; 
+    width: 8px;
 }
 
 #reason-content::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.4); /* Scrollbar color */
+    background: rgba(0, 255, 255, 0.5); /* Cyan */
     border-radius: 10px;
 }
 
-#reason-content::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.6); /* Darker on hover */
+#reason-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
 }
-
 
 /* ///////////////////////////////////////////////////////////////////////// */
 
 
 #reason-image img {
-    width: 100%;
-    border-radius: 40px;
+    width: 70%;
 }
 
-#reason-image {
-    border-radius: 10px;
-}
 
 #reason-content {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    background-color: rgb(193, 143, 51, 0.4);
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     height: 100%;
+    overflow-y: auto; /* Enable scroll when overflow */
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
     scroll-behavior: smooth;
 }
 
 
 #right-side-container {
-    background-color: rgba(255, 0, 0, 0.3);
     height: 100%;
     width: 90%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     position: relative;
 }
 
 #project-title-container {
-    background-color: rgb(43, 191, 147);
-    width: 70%;
-    height: 5%;
+    background-color: rgba(28, 30, 29);
+    color: cyan;
+    width: 60%;
+    height: 8%;
     position: absolute;
-    top: 0;
+    top: 10%;
+    left: 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 0 30px 30px 0;
 }
 
 
+
+
 #entry-box {
-    background-color: rgba(80, 192, 80, 0.5);
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
     height: 50%;
     width: 60%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centering trick */
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
     flex-direction: column;
     flex-wrap: wrap;
-    padding: 20px
+    padding: 20px;
+    border-radius: 10px;
 }
 
 
@@ -188,7 +161,7 @@ body {
     padding: 10px;
     border: 2px, solid, black;
     border-radius: 10px;
-    
+    text-align: center;
 }
 
 
@@ -215,9 +188,7 @@ body {
     place-items: center;
 }
 
-
-/* Buttons */
-#leave-submit {
+.button {
     height: 50px;
     width: 100px;
     margin: 20px;
@@ -225,17 +196,20 @@ body {
     border-radius: 10px;
 }
 
-#leave-clear {
-    height: 50px;
-    width: 100px;
-    margin: 20px;
-    border: 3px solid cyan;
-    border-radius: 10px;
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .glass-container {
+        width: 90%;
+    }
+
+    #radio-button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+  
 }
-
-
-
-
-
-
-
