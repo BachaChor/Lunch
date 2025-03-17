@@ -186,8 +186,14 @@ submitButtonElement.addEventListener("click", function() {
 
 // Clear button click handler
 clearButtonElement.addEventListener("click", function() {
-    console.log("clear clicked");
-    resetValues();
+    if(Meal_LeaveArray.length != 0) {
+        let revalidateDeletion = confirm("Delete all Entries ??");
+        if(revalidateDeletion) {
+            resetValues();
+        }
+    } else {
+        alert("No entries found to delete.");
+    }
 });
 
 // Initialize the application
